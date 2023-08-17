@@ -14,6 +14,7 @@ repositories {
 
 tagger {
     releaseBranch = "main"
+    githubReleaseEnabled.set(true)
 }
 
 kotlin {
