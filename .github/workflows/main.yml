@@ -16,8 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 10
-          fetch-tags: true
+          fetch-depth: 0
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
       - name: Generate Version 🧮
