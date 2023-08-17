@@ -1,0 +1,17 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Generate Version 🧮
+        run: ./gradlew calculateVersion -PexportToGithub=true --scan
+      - name: Build 🔨
+        run: ./gradlew release check -Pversion=${{ env.TAGGER_VERSION }} --scan
